@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cong_viec', function (Blueprint $table) {
-            $table->integer('id');
+            $table->id();
             $table->string('tieu_de');
             $table->enum('hinh_thuc_lam_viec', ['remote', 'offline', 'hybird']);
             $table->enum('loai_cong_viec', ['fulltime', 'parttime', 'intern']);
@@ -24,9 +24,9 @@ return new class extends Migration
             $table->timestamp('ngay_het_han')->nullable();
             $table->integer('user_id');
             $table->integer('to_chuc_id');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamps();
 
+            $table->index('user_id');
             $table->index('to_chuc_id');
         });
     }

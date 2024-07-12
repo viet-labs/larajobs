@@ -12,12 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('to_chuc', function (Blueprint $table) {
-            $table->integer('id');
+            $table->id();
             $table->string('ten_cong_ty');
             $table->string('dia_chi_lien_he');
             $table->string('website_url')->nullable();
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamps();
         });
     }
 
