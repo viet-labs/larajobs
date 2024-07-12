@@ -44,4 +44,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function toChucs()
+    {
+        // 1 User cos the nhieu ToChuc
+        return $this->hasMany(ToChuc::class);
+    }
+
+    public function congViecs()
+    {
+        // 1 User cos the nhieu CongViec
+        return $this->hasMany(CongViec::class);
+    }
 }
