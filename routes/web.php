@@ -12,4 +12,7 @@ Route::get('/testdb', function () {
     return view('viewlarajobs/testdb');
 });
 
-Route::get('larajobs/testdb', [CongViecController::class, 'testdb']);
+Route::get('/app', function () {
+    return view('viewlarajobs/app');
+});
+
