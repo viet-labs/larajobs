@@ -16,3 +16,4 @@ Route::get('/app', function () {
     return view('viewlarajobs/app');
 });
 
+Route::get('/test', [CongViecController::class, 'testdb']);
