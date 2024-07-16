@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('to_chuc_tu_khoa', function (Blueprint $table) {
             $table->integer('to_chuc_id');
             $table->integer('tu_khoa_id');
+
+            $table->index('to_chuc_id');
+            $table->index('tu_khoa_id');
         });
     }
 
