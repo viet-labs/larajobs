@@ -16,7 +16,10 @@ return new class extends Migration
             $table->string('ten_cong_ty');
             $table->string('dia_chi_lien_he');
             $table->string('website_url')->nullable();
+            $table->integer('user_id');
             $table->timestamps();
+
+            $table->index('user_id');
         });
     }
 
