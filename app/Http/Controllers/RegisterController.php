@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
-    register_
+    public function register()
+    {
+        return view('viewlarajobs/register');
+    }
 }
