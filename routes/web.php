@@ -2,18 +2,14 @@
 
 use App\Models\CongViec;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TuKhoaController;
 use App\Http\Controllers\CongViecController;
+use App\Models\TuKhoa;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/testdb', function () {
-    return view('viewlarajobs/testdb');
-});
-
-Route::get('/app', function () {
-    return view('viewlarajobs/app');
-});
-
 Route::get('/test', [CongViecController::class, 'testdb']);
+
+Route::get('/', [TuKhoaController::class, 'tags']);
