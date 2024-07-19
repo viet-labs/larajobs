@@ -6,10 +6,9 @@ use App\Http\Controllers\TuKhoaController;
 use App\Http\Controllers\CongViecController;
 use App\Models\TuKhoa;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/test', [CongViecController::class, 'testdb']);
 
 Route::get('/', [TuKhoaController::class, 'tags']);
+
+

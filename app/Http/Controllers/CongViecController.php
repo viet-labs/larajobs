@@ -18,5 +18,5 @@ class CongViecController extends Controller
 
         return view('home', compact('congViecList'));
     }
-    
+
 }
