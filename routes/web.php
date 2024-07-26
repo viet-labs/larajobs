@@ -5,13 +5,15 @@ use App\Models\TuKhoa;
 use App\Models\CongViec;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Admin\LoginController as AdminLoginController;
 use App\Http\Controllers\TuKhoaController;
 use App\Http\Controllers\CongViecController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\Work\WorkController;
 use App\Http\Controllers\Admin\Work\ToChucController;
 
-Route::middleware("auth")->group(function (){
+Route::middleware("auth")->group(function () {
     Route::get('/index', [TuKhoaController::class, 'tags'])->name('index');
 });
 
@@ -42,6 +44,11 @@ Route::post('/update-tuKhoa', [TuKhoaController::class, 'updateTuKhoa']);
 Route::get('/delete-tuKhoa/{id}', [TuKhoaController::class, 'deleteTuKhoa']);
 
 
-Route::get('admin')->group(function (){
-    // Route::get('/', [TuKhoaController::class, 'tags'])->name('admin.index');
+Route::prefix('admin')->middleware('admin')->group(function () {
+    Route::get('/', [HomeController::class, 'homepage'])->name('admin.home');
+});
+
+Route::middleware('guest:admin')->group(function () {
+    Route::get('/admin/login', [AdminLoginController::class, 'show'])->name('admin.login');
+    Route::post('/admin/login', [AdminLoginController::class, 'login'])->name('admin.postLogin');
 });
