@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,19 +13,19 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    function loginPost(Request $request)
+    function loginPost(LoginRequest $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
 
         $credentils = $request->only('email', 'password');
 
         if (Auth::attempt($credentils)) {
+            $request->session()->regenerate();
             return redirect()->intended(route("index"));
         }
 
-        return redirect(route("login"))->with("error", "Login Failed");
+        return redirect(route("login"))->with("status", [
+            'type' => 'error',
+            'message' => 'Login Failed',
+        ]);
     }
 }

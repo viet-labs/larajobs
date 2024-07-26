@@ -6,7 +6,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="./css/style.css">
-  <title>@yield('title') - Larajobs @show</title>
+  <title>@yield('title') - Larajobs</title>
   <script>
     tailwind.config = {
       theme: {
