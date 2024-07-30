@@ -12,6 +12,13 @@ class ToChuc extends Model
 
     protected $table = 'to_chuc';
 
+    protected $fillable = [
+        'ten_cong_ty',
+        'dia_chi_lien_he',
+        'website_url',
+        'user_id',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

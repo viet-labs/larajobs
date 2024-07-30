@@ -7,7 +7,7 @@
         <h1 class="font-bold text-5xl my-4">Work List</h1>
 
         <div class="flex justify-end">
-            <a href="{{ url('add-work') }}"
+            <a href="{{ url('addwork') }}"
                 class="my-2 py-2 px-4 font-bold text-white bg-blue-600 border-2 border-blue-500 rounded hover:bg-white hover:text-blue-600">ADD
                 Work</a>
         </div>
@@ -32,18 +32,20 @@
                     </tr>
                 </thead>
                 <tbody class="text-center">
-                    @foreach ($workList as $work)
+                    @foreach ($congViec as $cv)
                         <tr>
-                            <td class="py-3 px-6 border-2 border-slate-900">{{ $work->id }}</td>
-                            <td class="py-3 px-6 border-2 border-slate-900">{{ $work->tieu_de }}</td>
-                            <td class="py-3 px-6 border-2 border-slate-900">{{ $work->hinh_thuc_lam_viec }}</td>
-                            <td class="py-3 px-6 border-2 border-slate-900">{{ $work->loai_cong_viec }}</td>
-                            <td class="py-3 px-6 border-2 border-slate-900">{{ $work->dia_chi_lam_viec }}</td>
+                            <td class="py-3 px-6 border-2 border-slate-900">{{ $cv->id }}</td>
+                            <td class="py-3 px-6 border-2 border-slate-900">{{ $cv->tieu_de }}</td>
+                            <td class="py-3 px-6 border-2 border-slate-900">{{ $cv->hinh_thuc_lam_viec }}</td>
+                            <td class="py-3 px-6 border-2 border-slate-900">{{ $cv->loai_cong_viec }}</td>
+                            <td class="py-3 px-6 border-2 border-slate-900">{{ $cv->dia_chi_lam_viec }}</td>
                             <td class="py-3 px-6 border-2 border-slate-900">
-                                <a href="{{ url('edit-work/' . $work->id) }}"
+                                <a href="{{ url('editwork/' . $cv->id) }}"
                                     class="p-2 font-bold text-white bg-blue-600 border-2 border-blue-600 rounded hover:text-blue-600 hover:bg-white">Edit</a>
-                                <a href="{{ url('delete-work/' . $work->id) }}"
+                                <a href="{{ url('deletework/' . $cv->id) }}"
                                     class="p-2 font-bold text-white bg-blue-600 border-2 border-blue-600 rounded hover:text-blue-600 hover:bg-white">Delete</a>
+                                <a href="{{ url('showwork/' . $cv->id) }}"
+                                    class="p-2 font-bold text-white bg-blue-600 border-2 border-blue-600 rounded hover:text-blue-600 hover:bg-white">Show</a>
                             </td>
                         </tr>
                     @endforeach

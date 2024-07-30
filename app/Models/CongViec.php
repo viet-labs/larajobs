@@ -11,6 +11,19 @@ class CongViec extends Model
 
     protected $table = 'cong_viec';
 
+    protected $fillable = [
+        'tieu_de',
+        'hinh_thuc_lam_viec',
+        'loai_cong_viec',
+        'dia_chi_lam_viec',
+        'noi_dung',
+        'muc_luong_toi_thieu',
+        'muc_luong_toi_da',
+        'ngay_het_han',
+        'user_id',
+        'to_chuc_id',
+    ];
+
     public function toChuc()
     {
         return $this->belongsTo(ToChuc::class);

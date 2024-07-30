@@ -1,13 +1,9 @@
 <?php
 
-if (!function_exists('status')) {
-    function status(string $message, string $type = 'error')
+if (!function_exists('redirectWithStatus')) {
+    function redirectWithStatus(string $route, string $message, string $type = 'error')
     {
-        return compact('type', 'message');
-    }
-} else {
-    function status(string $message, string $type = 'success')
-    {
-        return compact('type', 'message');
+        return redirect($route)->with('status', compact('message', 'type'));
     }
 }
+

@@ -21,7 +21,7 @@ class AdminAuthenticated
             return redirect(route('admin.login'));
         }
 
-        if ($authUser->is_admin) {
+        if (!$authUser->is_admin) {
             return abort(403);
         }
 
