@@ -22,18 +22,29 @@
             </div>
 
             <div class="my-2">
-                <label for="hinh_thuc_lam_viec" class="block text-sm font-medium leading-6 text-gray-900">Form Of Work</label>
+                <label for="hinh_thuc_lam_viec" class="block text-sm font-medium leading-6 text-gray-900">Form Of
+                    Work</label>
                 <div class="mt-2">
-                    <input id="hinh_thuc_lam_viec" name="hinh_thuc_lam_viec" type="text" required
-                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-4">
+                    <select id="hinh_thuc_lam_viec" name="hinh_thuc_lam_viec" type="text" required
+                        class="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3 py-2">
+                        <option value="">--Moi Chon--</option>
+                        <option value="remote">Remote</option>
+                        <option value="offline">Offline</option>
+                        <option value="hybrid">Hybrid</option>
+                    </select>
                 </div>
             </div>
 
             <div class="my-2">
                 <label for="loai_cong_viec" class="block text-sm font-medium leading-6 text-gray-900">Type Of Work</label>
                 <div class="mt-2">
-                    <input id="loai_cong_viec" name="loai_cong_viec" type="text" required
-                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-4">
+                    <select id="loai_cong_viec" name="loai_cong_viec" type="text" required
+                        class="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3 py-2">
+                        <option value="">--Moi Chon--</option>
+                        <option value="fulltime">Fulltime</option>
+                        <option value="partime">Partime</option>
+                        <option value="intern">Intern</option>
+                    </select>
                 </div>
             </div>
 
@@ -54,7 +65,8 @@
             </div>
 
             <div class="my-2">
-                <label for="muc_luong_toi_thieu" class="block text-sm font-medium leading-6 text-gray-900">Minimum Wage</label>
+                <label for="muc_luong_toi_thieu" class="block text-sm font-medium leading-6 text-gray-900">Minimum
+                    Wage</label>
                 <div class="mt-2">
                     <input id="muc_luong_toi_thieu" name="muc_luong_toi_thieu" type="number" required
                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-4">
@@ -62,7 +74,8 @@
             </div>
 
             <div class="my-2">
-                <label for="muc_luong_toi_da" class="block text-sm font-medium leading-6 text-gray-900">Maximum Salary</label>
+                <label for="muc_luong_toi_da" class="block text-sm font-medium leading-6 text-gray-900">Maximum
+                    Salary</label>
                 <div class="mt-2">
                     <input id="muc_luong_toi_da" name="muc_luong_toi_da" type="number" required
                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-4">

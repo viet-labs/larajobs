@@ -2,12 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\Admin\CongViec\CongViecController as AdminCongViecController;
+use App\Http\Controllers\TuKhoaController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\HomeController;
-use App\Http\Controllers\Admin\Work\ToChucController;
-use App\Http\Controllers\Admin\Work\TuKhoaController;
+use App\Http\Controllers\Admin\CongViec\UserController;
+use App\Http\Controllers\Admin\CongViec\ToChucController;
 use App\Http\Controllers\Admin\LoginController as AdminLoginController;
+use App\Http\Controllers\Admin\CongViec\TuKhoaController as AdminTuKhoaController;
+use App\Http\Controllers\Admin\CongViec\CongViecController as AdminCongViecController;
 
 Route::middleware("auth")->group(function () {
     Route::get('/index', [TuKhoaController::class, 'tags'])->name('index');
@@ -26,20 +28,29 @@ Route::get('/editwork/{congViec}', [AdminCongViecController::class, 'editCongVie
 Route::post('/updatework/{congViec}', [AdminCongViecController::class, 'updateCongViec']);
 Route::get('/deletework/{congViec}', [AdminCongViecController::class, 'destroyCongViec']);
 
-Route::get('/toChuc-list', [ToChucController::class, 'index']);
-Route::get('/add-toChuc', [ToChucController::class, 'addToChuc']);
-Route::post('/save-toChuc', [ToChucController::class, 'saveToChuc']);
-Route::get('/edit-toChuc/{id}', [ToChucController::class, 'editToChuc']);
-Route::post('/update-toChuc', [ToChucController::class, 'updateToChuc']);
-Route::get('/delete-toChuc/{id}', [ToChucController::class, 'deleteToChuc']);
+Route::get('/tochuclist', [ToChucController::class, 'index']);
+Route::get('/addtochuc', [ToChucController::class, 'createToChuc']);
+Route::post('/savetochuc', [ToChucController::class, 'storeToChuc']);
+Route::get('/showtochuc/{toChuc}', [ToChucController::class, 'showToChuc']);
+Route::get('/edittochuc/{toChuc}', [ToChucController::class, 'editToChuc']);
+Route::post('/updatetochuc/{toChuc}', [ToChucController::class, 'updateToChuc']);
+Route::get('/deletetochuc/{toChuc}', [ToChucController::class, 'destroyToChuc']);
 
-Route::get('/tuKhoa-list', [TuKhoaController::class, 'index']);
-Route::get('/add-tuKhoa', [TuKhoaController::class, 'addTuKhoa']);
-Route::post('/save-tuKhoa', [TuKhoaController::class, 'saveTuKhoa']);
-Route::get('/edit-tuKhoa/{id}', [TuKhoaController::class, 'editTuKhoa']);
-Route::post('/update-tuKhoa', [TuKhoaController::class, 'updateTuKhoa']);
-Route::get('/delete-tuKhoa/{id}', [TuKhoaController::class, 'deleteTuKhoa']);
+Route::get('/tukhoalist', [AdminTuKhoaController::class, 'index']);
+Route::get('/addtukhoa', [AdminTuKhoaController::class, 'createTuKhoa']);
+Route::post('/savetukhoa', [AdminTuKhoaController::class, 'storeTuKhoa']);
+Route::get('/showtukhoa/{tuKhoa}', [AdminTuKhoaController::class, 'showTuKhoa']);
+Route::get('/edittukhoa/{tuKhoa}', [AdminTuKhoaController::class, 'editTuKhoa']);
+Route::post('/updatetukhoa/{tuKhoa}', [AdminTuKhoaController::class, 'updateTuKhoa']);
+Route::get('/deletetukhoa/{tuKhoa}', [AdminTuKhoaController::class, 'destroyTuKhoa']);
 
+Route::get('/userlist', [UserController::class, 'index']);
+Route::get('/adduser', [UserController::class, 'createUser']);
+Route::post('/saveuser', [UserController::class, 'storeUser']);
+Route::get('/showuser/{user}', [UserController::class, 'showUser']);
+Route::get('/edituser/{user}', [UserController::class, 'editUser']);
+Route::post('/updateuser/{user}', [UserController::class, 'updateUser']);
+Route::get('/deleteuser/{user}', [UserController::class, 'destroyUser']);
 
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', [HomeController::class, 'homepage'])->name('admin.home');

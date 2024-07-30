@@ -25,7 +25,7 @@ class CongViecController extends Controller
      */
     public function createCongViec()
     {
-        return view('admin.work.create-work');
+        return view('admin.Work.create-work');
     }
 
     /**
@@ -67,7 +67,7 @@ class CongViecController extends Controller
      */
     public function showCongViec(CongViec $congViec)
     {
-        return view('admin.work.show-work', compact('congViec'));
+        return view('admin.Work.show-work', compact('congViec'));
     }
 
     /**
@@ -75,7 +75,7 @@ class CongViecController extends Controller
      */
     public function editCongViec(CongViec $congViec)
     {
-        return view('admin.work.edit-work', compact('congViec'));
+        return view('admin.Work.edit-work', compact('congViec'));
     }
 
     /**
