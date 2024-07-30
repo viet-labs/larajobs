@@ -26,10 +26,11 @@
                         <th class="py-3 border-2 border-slate-900">ID</th>
                         <th class="py-3 border-2 border-slate-900">Name</th>
                         <th class="py-3 border-2 border-slate-900">Slug</th>
+                        <th class="py-3 border-2 border-slate-900">Action</th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
-                    @foreach ($tukhoaList as $tuKhoa)
+                    @foreach ($tuKhoaList as $tuKhoa)
                         <tr>
                             <td class="py-3 px-6 border-2 border-slate-900">{{ $tuKhoa->id }}</td>
                             <td class="py-3 px-6 border-2 border-slate-900">{{ $tuKhoa->ten_hien_thi }}</td>

@@ -11,6 +11,11 @@ class TuKhoa extends Model
 
     protected $table = 'tu_khoa';
 
+    protected $fillable = [
+        'ten_hien_thi',
+        'slug',
+    ];
+
     public function congViecs()
     {
         return $this->belongsToMany(CongViec::class);

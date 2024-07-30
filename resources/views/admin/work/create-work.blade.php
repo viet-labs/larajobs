@@ -10,7 +10,7 @@
                 {{ Session::get('success') }}
             </div>
         @endif
-        <form method="POST" action="{{ url('save-work') }}">
+        <form method="POST" action="{{ url('savework') }}">
             @csrf
 
             <div class="my-2">
@@ -97,7 +97,7 @@
             <div class="my-4 flex justify-center items-center">
                 <button type="submit"
                     class="py-2 px-4 font-bold border-2 border-blue-600 rounded bg-blue-600 text-white hover:bg-white hover:text-blue-600">Save</button>
-                <a href="{{ url('work-list') }}"
+                <a href="{{ url('worklist') }}"
                     class="ml-4 py-2 px-4 font-bold border-2 border-red-600 rounded bg-red-600 text-white hover:bg-white hover:text-red-600">Back</a>
             </div>
 

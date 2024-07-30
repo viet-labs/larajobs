@@ -11,10 +11,9 @@ class WorkController extends Controller
 {
     public function index(Request $request)
     {
-        // $limit = $request->query('limit', 10);
-        // $limit = Number::clamp($limit, 1, 100);
-        // $workList = CongViec::orderBy('id', 'asc')->paginate($limit);
-        $workList = CongViec::get();
+        $limit = $request->query('limit', 10);
+        $limit = Number::clamp($limit, 1, 100);
+        $workList = CongViec::orderBy('id', 'asc')->paginate($limit);
         return view('admin.work-list', compact('workList'));
 
     }
@@ -48,9 +47,12 @@ class WorkController extends Controller
         return view('admin.work.edit-work', compact('workList'));
     }
 
-    public function updateWork(Request $request, CongViec $congViec)
+    public function updateWork(CongViec $congViec, Request $request)
     {
-        $congViec->update($request->all());
+
+        $congViec->update($request->only([
+            'tieu_de'
+        ]));
         return redirect()->back()->with('success', 'Work Updated Successfully');
     }
 
