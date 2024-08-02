@@ -17,21 +17,21 @@ class TuKhoaController extends Controller
         $limit = $request->query('limit', 10);
         $limit = Number::clamp($limit, 1, 100);
         $tuKhoa = TuKhoa::orderBy('id', 'asc')->paginate($limit);
-        return view('admin.tuKhoa-list', compact('tuKhoa'));
+        return view('admin.tukhoa.tuKhoa-list', compact('tuKhoa'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function createTuKhoa()
+    public function create()
     {
-        return view('admin.TuKhoa.create-tuKhoa');
+        return view('admin.tukhoa.create-tuKhoa');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function storeTuKhoa(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'ten_hien_thi' => 'required|min:3|max:50',
@@ -49,23 +49,23 @@ class TuKhoaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function showTuKhoa(TuKhoa $tuKhoa)
+    public function show(TuKhoa $tuKhoa)
     {
-        return view('admin.TuKhoa.show-tuKhoa', compact('tuKhoa'));
+        return view('admin.tukhoa.show-tuKhoa', compact('tuKhoa'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function editTuKhoa(TuKhoa $tuKhoa)
+    public function edit(TuKhoa $tuKhoa)
     {
-        return view('admin.TuKhoa.edit-tuKhoa', compact('tuKhoa'));
+        return view('admin.tukhoa.edit-tuKhoa', compact('tuKhoa'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function updateTuKhoa(Request $request, TuKhoa $tuKhoa)
+    public function update(Request $request, TuKhoa $tuKhoa)
     {
         $tuKhoa->update($request->only([
             'ten_hien_thi',
@@ -77,7 +77,7 @@ class TuKhoaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroyTuKhoa(TuKhoa $tuKhoa)
+    public function destroy(TuKhoa $tuKhoa)
     {
         $tuKhoa->delete();
         return redirect()->back()->with('success', 'Work Deleted Successfully');

@@ -13,15 +13,6 @@
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             @include('partials.form-status')
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
 
             <form class="space-y-6" action="{{ route('register.post') }}" method="POST">
                 @csrf

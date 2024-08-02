@@ -111,8 +111,7 @@
     <div class="my-4 flex justify-center items-center">
         <button type="submit"
             class="py-2 px-4 font-bold border-2 border-blue-600 rounded bg-blue-600 text-white hover:bg-white hover:text-blue-600">{{ $isEditPage ? 'Update' : 'Create' }}</button>
-        <a href="{{ url('worklist') }}"
+        <a href="{{ route('cong-viec.index') }}"
             class="ml-4 py-2 px-4 font-bold border-2 border-red-600 rounded bg-red-600 text-white hover:bg-white hover:text-red-600">Back</a>
     </div>
-
 </form>

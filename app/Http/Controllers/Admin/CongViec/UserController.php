@@ -17,21 +17,21 @@ class UserController extends Controller
         $limit = $request->query('limit', 10);
         $limit = Number::clamp($limit, 1, 100);
         $user = User::orderBy('id', 'asc')->paginate($limit);
-        return view('admin.user-list', compact('user'));
+        return view('admin.user.user-list', compact('user'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function createUser()
+    public function create()
     {
-        return view('admin.User.create-user');
+        return view('admin.user.create-user');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function storeUser(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|min:3|max:255',
@@ -51,23 +51,23 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function showUser(User $user)
+    public function show(User $user)
     {
-        return view('admin.User.show-user', compact('user'));
+        return view('admin.user.show-user', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function editUser(User $user)
+    public function edit(User $user)
     {
-        return view('admin.User.edit-user', compact('user'));
+        return view('admin.user.edit-user', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function updateUser(Request $request, User $user)
+    public function update(Request $request, User $user)
     {
         $user->update($request->only([
             'name',
@@ -80,7 +80,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroyUser(User $user)
+    public function destroy(User $user)
     {
         $user->delete();
         return redirect()->back()->with('success', 'Work Deleted Successfully');

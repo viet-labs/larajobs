@@ -23,9 +23,6 @@ class LoginController extends Controller
             return redirect()->intended(route("index"));
         }
 
-        return redirect(route("login"))->with("status", [
-            'type' => 'error',
-            'message' => 'Login Failed',
-        ]);
+        return redirectWithStatus(route("login"), "Email or password is incorrect");
     }
 }

@@ -17,21 +17,21 @@ class CongViecController extends Controller
         $limit = $request->query('limit', 10);
         $limit = Number::clamp($limit, 1, 100);
         $congViec = CongViec::orderBy('id', 'asc')->paginate($limit);
-        return view('admin.work-list', compact('congViec'));
+        return view('admin.work.work-list', compact('congViec'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function createCongViec()
+    public function create()
     {
-        return view('admin.Work.create-work');
+        return view('admin.work.create-work');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function storeCongViec(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'tieu_de' => 'required|min:3|max:255',
@@ -65,23 +65,23 @@ class CongViecController extends Controller
     /**
      * Display the specified resource.
      */
-    public function showCongViec(CongViec $congViec)
+    public function show(CongViec $congViec)
     {
-        return view('admin.Work.show-work', compact('congViec'));
+        return view('admin.work.show-work', compact('congViec'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function editCongViec(CongViec $congViec)
+    public function edit(CongViec $congViec)
     {
-        return view('admin.Work.edit-work', compact('congViec'));
+        return view('admin.work.edit-work', compact('congViec'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function updateCongViec(Request $request, CongViec $congViec)
+    public function update(Request $request, CongViec $congViec)
     {
 
         $congViec->update($request->only([
@@ -102,7 +102,7 @@ class CongViecController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroyCongViec(CongViec $congViec)
+    public function destroy(CongViec $congViec)
     {
         $congViec->delete();
         return redirect()->back()->with('success', 'Work Deleted Successfully');
