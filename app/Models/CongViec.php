@@ -11,6 +11,15 @@ class CongViec extends Model
 
     protected $table = 'cong_viec';
 
+    protected function casts(): array
+    {
+        return [
+            'created_at' => 'datetime:Y-m-d',
+            'updated_at' => 'datetime:Y-m-d',
+            'ngay_het_han' => 'datetime:Y-m-d',
+        ];
+    }
+
     protected $fillable = [
         'tieu_de',
         'hinh_thuc_lam_viec',
