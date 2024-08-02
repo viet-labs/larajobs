@@ -21,15 +21,9 @@ class RegisterController extends Controller
         $user->password = Hash::make($request->password);
 
         if ($user->save()) {
-            return redirect(route("login"))->with("stutus", [
-                'type' => 'success',
-                'message' => 'User Created Successfully',
-            ]);
+            return redirectWithStatus(route("login"), "Account \"$user->email\" is Created Successfully", "success");
         }
 
-        return redirect(route("register"))->with("status", [
-            'type' => 'error',
-            'message' => 'Account Creation Failed',
-        ]);
+        return redirectWithStatus(route("register"), "Account Created Failed", "error");
     }
 }

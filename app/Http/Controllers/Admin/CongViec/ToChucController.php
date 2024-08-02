@@ -17,21 +17,21 @@ class ToChucController extends Controller
         $limit = $request->query('limit', 10);
         $limit = Number::clamp($limit, 1, 100);
         $toChuc = ToChuc::orderBy('id', 'asc')->paginate($limit);
-        return view('admin.toChuc-list', compact('toChuc'));
+        return view('admin.tochuc.toChuc-list', compact('toChuc'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function createToChuc()
+    public function create()
     {
-        return view('admin.ToChuc.create-toChuc');
+        return view('admin.tochuc.create-toChuc');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function storeToChuc(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'ten_cong_ty' => 'required|min:3|max:255',
@@ -53,23 +53,23 @@ class ToChucController extends Controller
     /**
      * Display the specified resource.
      */
-    public function showToChuc(ToChuc $toChuc)
+    public function show(ToChuc $toChuc)
     {
-        return view('admin.ToChuc.show-toChuc', compact('toChuc'));
+        return view('admin.tochuc.show-toChuc', compact('toChuc'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function editToChuc(ToChuc $toChuc)
+    public function edit(ToChuc $toChuc)
     {
-        return view('admin.ToChuc.edit-toChuc', compact('toChuc'));
+        return view('admin.tochuc.edit-toChuc', compact('toChuc'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function updateToChuc(Request $request, ToChuc $toChuc)
+    public function update(Request $request, ToChuc $toChuc)
     {
         $toChuc->update($request->only([
             'ten_cong_ty',
@@ -83,7 +83,7 @@ class ToChucController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroyToChuc(ToChuc $toChuc)
+    public function destroy(ToChuc $toChuc)
     {
         $toChuc->delete();
         return redirect()->back()->with('success', 'Work Deleted Successfully');
