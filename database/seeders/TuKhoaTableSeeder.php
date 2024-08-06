@@ -14,6 +14,5 @@ class TuKhoaTableSeeder extends Seeder
     public function run(): void
     {
         TuKhoa::factory(10)->create();
-
     }
 }
